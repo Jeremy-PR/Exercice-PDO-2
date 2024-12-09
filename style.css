@@ -1,0 +1,138 @@
+/* Style général du body */
+body {
+    background-color: #8f86d6;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Effet de survol pour l'ensemble du body */
+body:hover {
+    transform: scale(1.02);
+}
+
+/* Titre */
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1s ease-out;
+    margin-bottom: 20px;
+}
+
+/* Animation de fondu pour l'apparition du titre */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Liens */
+a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 12px 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.05);
+}
+
+/* Champs de saisie */
+input[type="text"], input[type="password"], input[type="email"] {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Effet de focus sur les champs */
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #8f86d6;
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+/* Bouton */
+button {
+    padding: 12px 30px;
+    background-color: #573581;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #7f4c9e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation d'apparition du formulaire */
+form {
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
