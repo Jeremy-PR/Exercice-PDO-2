@@ -81,7 +81,7 @@ form:hover {
     transform: scale(1.05);
 }
 
-/* Champs de saisie */
+
 input[type="text"], input[type="password"], input[type="email"] {
     padding: 12px;
     margin: 8px 0;
@@ -94,14 +94,14 @@ input[type="text"], input[type="password"], input[type="email"] {
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Effet de focus sur les champs */
+
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
     border-color: #8f86d6;
     background-color: rgba(255, 255, 255, 0.3);
     outline: none;
 }
 
-/* Bouton */
+
 button {
     padding: 12px 30px;
     background-color: #573581;
@@ -121,9 +121,46 @@ button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Animation d'apparition du formulaire */
+
+
 form {
     animation: slideIn 0.8s ease-out;
+}
+
+/* Liste des utilisateurs */
+.user-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Item individuel d'un utilisateur */
+.user-item {
+    background-color: #fafafa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet de survol pour les items */
+.user-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour chaque ligne d'informations */
+.user-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 8px 0;
+}
+
+/* Style pour les labels (Nom, Prénom, etc.) */
+.user-item span {
+    font-weight: bold;
+    color: #333;
 }
 
 @keyframes slideIn {
