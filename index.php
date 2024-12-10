@@ -1,10 +1,10 @@
 <?php
-require_once './connect_db.php';
+require_once './utils/connect_db.php';
 
 $sql = "SELECT * FROM `patients`";
 
 try {
-    $stmt = $pdo->query($sql);
+    $stmt = $objetPdo->query($sql);
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
 
 } catch (PDOException $error) {
@@ -27,5 +27,6 @@ try {
 <body>
     <h1>Formulaire d'ajout d'un patient</h1>
  <a href="./ajout-patient.php">Cliquer ici pour créer un nouveau profil patient</a>
+ <a href="./dossier RDV/ajout-rdv.php">Prendre un rendez-vous</a>
 </body>
 </html>

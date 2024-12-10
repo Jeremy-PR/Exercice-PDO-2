@@ -2,7 +2,7 @@
 
 
 
-require_once './connect_db.php';  // on connecte le fichier avec la BDD
+require_once './utils/connect_db.php';  // on connecte le fichier avec la BDD
 
 $id = $_GET['id'] ?? null;  // Ici, l'opérateur ?? est utilisé pour vérifier si la variable 'id' existe dans l'URL. Si elle existe, sa valeur est assignée à $id, sinon $id prend la valeur null.
 

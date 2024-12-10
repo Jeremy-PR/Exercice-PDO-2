@@ -41,6 +41,8 @@
         
    
         <button type="submit">Ajouter le patient</button>
+        <a href="./liste-patient.php">Listes des patients</a>
+        <a href="./index.php">Retour accueil</a>
     </form>
 </body>
 </html>

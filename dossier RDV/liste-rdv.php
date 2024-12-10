@@ -1,7 +1,7 @@
 <?php
-require_once './utils/connect_db.php';
+require_once '../utils/connect_db.php';
 
-$sql = "SELECT * FROM `patients`";
+$sql = "SELECT * FROM `appointments`";
 
 try {
     $stmt = $objetPdo->query($sql);
@@ -16,8 +16,6 @@ try {
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +23,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Utilisateurs</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -42,7 +40,7 @@ try {
                     <p><span>Date de naissance :</span> <?= $user['birthdate'] ?></p>
                     <p><span>Téléphone :</span> <?= $user['phone'] ?></p>
                     <p><span>Mail :</span> <?= $user['mail'] ?></p>
-                    <a href="./profil-patient.php?id=<?= $user['id'] ?>">Voir Profil</a>
+                    <a href="../profil-patient.php?id=<?= $user['id'] ?>">Voir Profil</a>
                 </div>
 
                 
@@ -51,7 +49,7 @@ try {
             ?>
         </div>
     </div>
-    <a href="./ajout-patient.php"> Créer un nouveau Patient</a>
+    <a href="../dossier RDV/ajout-rdv.php"> Liste des rdv</a>
 </body>
 
 </html>
