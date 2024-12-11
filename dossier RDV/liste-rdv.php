@@ -1,55 +1,46 @@
 <?php
 require_once '../utils/connect_db.php';
 
-$sql = "SELECT * FROM `appointments`";
+
+$sql = "SELECT appointments.id AS rdv_id, appointments.dateHour, patients.id AS patient_id, patients.firstname, patients.lastname, patients.birthdate, patients.phone, patients.mail
+        FROM appointments
+        JOIN patients ON appointments.idPatients = patients.id";
 
 try {
+  
     $stmt = $objetPdo->query($sql);
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
-
+    $rdvs = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 } catch (PDOException $error) {
-    echo "Erreur lors de la requete : " . $error->getMessage();
+    echo "Erreur lors de la récupération des rendez-vous : " . $error->getMessage();
 }
-
-
 ?>
 
-
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Utilisateurs</title>
+    <title>Liste des Rendez-vous</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
-    <div class="container">
-        <h1>Liste des utilisateurs :</h1>
 
-        <div class="user-list">
-            <?php
-            foreach ($users as $user) {
-            ?>
-                <div class="user-item">
-                    <p><span>Nom :</span> <?= $user['lastname'] ?></p>
-                    <p><span>Prénom :</span> <?= $user['firstname'] ?></p>
-                    <p><span>Date de naissance :</span> <?= $user['birthdate'] ?></p>
-                    <p><span>Téléphone :</span> <?= $user['phone'] ?></p>
-                    <p><span>Mail :</span> <?= $user['mail'] ?></p>
-                    <a href="../profil-patient.php?id=<?= $user['id'] ?>">Voir Profil</a>
-                </div>
+    <h2>Liste des rendez-vous</h2>
 
-                
-            <?php
-            }
-            ?>
+    <?php foreach ($rdvs as $rdv): ?>
+        <div class="rdv-card">
+          
+        
+        <p><strong>Nom :</strong> <?= htmlspecialchars($rdv['lastname']) ?></p>
+        <p><strong>Prénom :</strong> <?= htmlspecialchars($rdv['firstname']) ?></p>
+            <p><strong>Date et Heure:</strong> <?= htmlspecialchars($rdv['dateHour']) ?></p>
+            <p><strong>ID du Patient:</strong> <?= htmlspecialchars($rdv['patient_id']) ?></p>
+           
+          
+            <a href="rendezvous.php?id=<?= $rdv['rdv_id'] ?>">Voir les détails</a>
+            <hr>
         </div>
-    </div>
-    <a href="../dossier RDV/ajout-rdv.php"> Liste des rdv</a>
+    <?php endforeach; ?>
+<a href="./ajout-rdv.php">Créer un nouveau rdv</a>
 </body>
-
 </html>

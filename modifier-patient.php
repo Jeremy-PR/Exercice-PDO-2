@@ -49,6 +49,8 @@ $users = $stmt->fetch();
         <input type="hidden" name="idPatient" value="<?= $users["id"] ?>">
 
         <input type="submit" value="Modifier les informations du patient ">
+
+        <a href="./index.php">Retour accueil</a>
     </form>
 
 

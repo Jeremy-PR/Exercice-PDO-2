@@ -16,7 +16,7 @@
 </head>
 <body>
     <h1>Formulaire d'ajout d'un patient</h1>
-    <form action="./process.php" method="POST">
+    <form action="../process.php" method="POST">
         
         <label for="lastname">Nom :</label>
         <input type="text" id="lastname" name="lastname" required><br><br>

@@ -1,28 +1,26 @@
-
 <?php
-
 require_once '../utils/connect_db.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer les données du formulaire
+    $idPatient = $_POST['id_patient'];  // L'ID du patient sélectionné
+    $dateHour = $_POST['dateHour'];     // Date et heure du rendez-vous
 
+    // Insérer un nouveau rendez-vous dans la base de données
+    $sql = "INSERT INTO appointments (dateHour, idPatients) VALUES (:dateHour, :idPatient)";
 
+    try {
+        $stmt = $objetPdo->prepare($sql);
+        $stmt->execute([
+            'dateHour' => $dateHour,  // Date et heure du rendez-vous
+            'idPatient' => $idPatient // ID du patient
+        ]);
 
-$sql = "INSERT INTO appointments (id, dateHour, idPatients)
- VALUES (:id, :dateHour, :idPatients)";
-
-try {
-    $stmt = $objetPdo->prepare($sql);
-    $users = $stmt->execute([
-        ':id' => $_POST["idPatients"],
-        ':dateHour' => $_POST["dateHour"],
-        ':idPatients' => $_POST["idPatients"]
-
-    ]);
-} catch (PDOException $error) {
-    echo "Erreur lors de la requete : " . $error->getMessage();
+        // Rediriger vers une page de confirmation ou accueil
+        header('Location: liste-rdv.php');
+        exit();
+    } catch (PDOException $error) {
+        echo "Erreur lors de l'enregistrement du rendez-vous : " . $error->getMessage();
+    }
 }
-
-
-header("Location: ./liste-rdv.php");
-
-
 ?>

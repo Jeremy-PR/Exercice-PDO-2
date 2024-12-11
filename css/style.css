@@ -81,8 +81,7 @@ form:hover {
     transform: scale(1.05);
 }
 
-
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"], select, input[type="date"], input[type="time"] {
     padding: 12px;
     margin: 8px 0;
     border-radius: 10px;
@@ -94,13 +93,11 @@ input[type="text"], input[type="password"], input[type="email"] {
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus, input[type="date"]:focus, input[type="time"]:focus {
     border-color: #8f86d6;
     background-color: rgba(255, 255, 255, 0.3);
     outline: none;
 }
-
 
 button {
     padding: 12px 30px;
@@ -121,22 +118,17 @@ button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-
-
-form {
-    animation: slideIn 0.8s ease-out;
-}
-
-/* Liste des utilisateurs */
-.user-list {
+/* Liste des rendez-vous */
+.rdv-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding: 20px 0;
+    width: 100%;
 }
 
-/* Item individuel d'un utilisateur */
-.user-item {
+/* Item individuel de rendez-vous */
+.rdv-item {
     background-color: #fafafa;
     padding: 15px;
     border: 1px solid #ddd;
@@ -144,21 +136,20 @@ form {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Effet de survol pour les items */
-.user-item:hover {
+.rdv-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Style pour chaque ligne d'informations */
-.user-item p {
+.rdv-item p {
     font-size: 1rem;
     color: #555;
     margin: 8px 0;
 }
 
 /* Style pour les labels (Nom, Prénom, etc.) */
-.user-item span {
+.rdv-item span {
     font-weight: bold;
     color: #333;
 }
@@ -172,4 +163,25 @@ form {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+/* Style spécifique pour les informations du patient dans le rendez-vous */
+.rdv-item .patient-info {
+    font-weight: bold;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.rdv-item .patient-name {
+    font-size: 1.2rem;
+    color: #16A085;
+}
+
+.rdv-item .appointment-time {
+    font-size: 1rem;
+    color: #555;
+}
+
+.rdv-item .appointment-time strong {
+    color: #3498db;
 }
