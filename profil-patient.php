@@ -38,7 +38,6 @@ if ($id && is_numeric($id)) {   // Vérification si $id existe (c'est-à-dire s'
 
 
 
-
 ?>
 
 
@@ -60,6 +59,8 @@ if ($id && is_numeric($id)) {   // Vérification si $id existe (c'est-à-dire s'
         <p><strong>Email : </strong><?php echo htmlspecialchars($user['mail']); ?></p>
         <p><strong>Numéro de téléphone: </strong><?php echo htmlspecialchars($user['phone']); ?></p>
         <a href="./modifier-patient.php?id=<?= $user['id'] ?>">Modifier les informations du patient</a>
+        <a href="./rendezvous.php?id=<?= $user['id'] ?>">Rendez-vous programmé</a>
+        
 
   
     <?php else: ?>

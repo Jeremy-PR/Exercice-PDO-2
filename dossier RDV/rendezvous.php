@@ -62,6 +62,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         <a href="liste-rdv.php">Retour à la liste des rendez-vous</a>
         <a href="modifier-rdv.php?id=<?= $rdv['rdv_id'] ?>">Modifier rdv</a>
+      
+        
 
     </div>
 
